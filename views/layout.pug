@@ -1,6 +1,25 @@
 <!doctype html>
 html
   head
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     title= title || 'Tindr'
   body
-    block content
+    .header
+      .title
+        <i class="fas fa-leaf"></i>
+        h1
+          a(href='/')
+            | Timbr
+            span .top
+      .menu
+        span.name= user?user.name:'Log in'
+        if user && user.profile
+          img.avatar(src='/images/profile/' + user._id)
+        else
+          img.avatar.default(src='/images/profile-blank.png')
+
+    .content
+      block content
+    .footer
+      p timbr.top is a website by <a href="https://coleserickson.com">Cole Erickson</a>

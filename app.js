@@ -1,7 +1,6 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
-const mongoose = require('mongoose')
+const expressLess = require('express-less')
 const db = require('./db')
 
 const app = express()
@@ -12,6 +11,10 @@ try{ config = require('./config.json') } catch(e){}
 
 // Layout engine
 app.set('view engine', 'pug')
+
+// Stylesheets
+app.use('/stylesheets', expressLess(__dirname + '/public/stylesheets'));
+app.use(express.static('public'))
 
 // Cookies -> Session variable
 app.use(cookieSession({
@@ -56,7 +59,7 @@ app.use((err, req, res, next)=>{
   if(process.env.NODE_ENV === 'production')
     err.stack = '[Stack trace redacted]'
 
-  res.render('error', {err})
+  res.render('error', {err, user: req.user})
 })
 
 // Start server

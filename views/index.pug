@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .home
+    .hero
+      div
+        h3 Find the perfect someone to lay down roots with
+        form(action='/auth/register' method='post')
+          h1 Join Timbr
+          p Timbr is the world's largest dating network for trees.
+
+          .entry
+            label(for='name') Name:
+            input(name='name')
+
+          .entry
+            label(for='email') Email:
+            input(name='email')
+
+          .entry
+            label(for='password') Password:
+            input(name='password' type='password')
+
+          button(type='submit') Join Timbr

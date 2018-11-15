@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400|Varela+Round');
+
+html,body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-y:auto;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header, .footer{
+  width: 100%;
+  height: 50px;
+}
+
+.header {
+  border-bottom: solid 1px lightgray;
+  display: flex;
+
+  .title {
+    flex: 1;
+
+    i {
+      display: inline-block;
+      font-size: 22px;
+      position: relative;
+      top: -3px;
+      margin: 8px;
+      margin-left: 16px;
+    }
+
+    h1 {
+      display: inline-block;
+      font-family: 'Varela Round', sans-serif;
+      font-weight:500;
+      margin: 8px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+  
+      span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight:300;
+        opacity: .64;
+      }
+    }
+  }
+
+  .menu {
+    .name {
+      display: inline-block;
+      margin: 15px;
+      height: 20px;
+      vertical-align: top;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      border: solid 2px gray;
+      border-radius: 15px;
+      margin: 8px;
+
+      &.default {
+        opacity: .4;
+      }
+    }
+  }
+}
+
+.footer {
+  border-top: solid 1px lightgray;
+
+  p {
+    margin-left: 15px;
+  }
+}
+
+.content{
+  flex: 1;
+}
+
+@import "./home.less";
