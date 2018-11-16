@@ -14,7 +14,6 @@ app.set('view engine', 'pug')
 
 // Stylesheets
 app.use('/stylesheets', expressLess(__dirname + '/public/stylesheets'));
-app.use(express.static('public'))
 
 // Cookies -> Session variable
 app.use(cookieSession({
@@ -49,13 +48,15 @@ app.use(async (req, _, next)=>{
 app.use('/', require('./routes'))
 app.use('/auth', require('./routes/auth'))
 app.use('/profile', require('./routes/profile'))
+app.use('/images', require('./routes/images'))
+app.use(express.static('public'))
 
 // Error handler
 const err = (message, status)=>{let err = new Error(message); err.status = status || 500; return err}
 app.use((_,__,next)=>next(err('Not found', 404)))
 
 app.use((err, req, res, next)=>{
-  res.status = err.status || 500
+  res.status(err.status || 500)
 
   if(process.env.NODE_ENV === 'production')
     err.stack = '[Stack trace redacted]'

@@ -50,6 +50,9 @@ router.post('/login', bodyParser.urlencoded({extended: true}), async (req, res)=
 
   req.session._id = newSession._id
 
+  if(req.body.redirect)
+    return res.redirect(req.body.redirect)
+
   res.redirect('/profile')
 })
 

@@ -7,7 +7,8 @@ const user = new Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   description: String,
-  interests: [String]
+  interests: [String],
+  blocked: [{type: Schema.Types.ObjectId, ref: 'User'}]
 })
 
 module.exports = user;

@@ -1,4 +1,26 @@
 extends layout
 
 block content
-  h1 Profile?
+  .profile
+    .hero
+      img(src='/images/banner/' + profile._id)
+    .text
+      .blurb
+        img(src='/images/profile/' + profile._id)
+        h3= profile.name
+        p= profile.descriptions || 'This user has not provided a bio.'
+        .buttons
+          if user.blocked.join('-').includes(profile._id)
+            a(href='#').block Unblock
+          else
+            a(href='#').block Block
+          a(href='#') Message
+      .interests
+        h4 Interests
+        if profile.interests.length > 0
+          for interest in profile.interests
+            span.interest= interest
+        else
+          span No interests
+        p Compatibility circle here
+  

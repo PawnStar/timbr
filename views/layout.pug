@@ -7,13 +7,18 @@ html
   body
     .header
       .title
-        <i class="fas fa-leaf"></i>
         h1
           a(href='/')
+            <i class="fas fa-leaf"></i>
             | Timbr
             span .top
-      a.menu(href=user?'/profile':'/login')
-        span.name= user?user.name:'Log in'
+      .menu
+        if user
+          span.name= user?user.name:'Log in'
+          a(href='/profile') Profile
+          a(href='/auth/logout') Log out
+        else
+          a(href='/login') Log in
         if user && user.profile
           img.avatar(src='/images/profile/' + user._id)
         else

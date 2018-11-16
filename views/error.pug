@@ -9,4 +9,4 @@ block content
         pre= err.stack
       
       h3 Sorry about that
-      p Looks like our server encountered an error.  Feel free to <a href=".">try again</a>.
+      p= err.details || 'Looks like our server encountered an error.  Feel free to <a href=".">try again</a>.'

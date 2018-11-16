@@ -1,0 +1,72 @@
+@import (reference) './partials/form.less';
+
+.profile {
+  .hero {
+    width: 100%;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-position: 50% 70%;
+      object-fit: cover;
+    }
+  }
+
+  .text {
+    max-width: 800px;
+    margin: 0px auto;
+
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 900px) {
+      margin: 0px 50px;
+    }
+
+    .blurb {
+      flex: 1;
+
+      img {
+        width: 180px;
+        height: 180px;
+        border-radius: 100px;
+        border: solid 10px #57f557;
+        margin-top: -140px;
+        background: white;
+      }
+    }
+
+    .interests {
+      width: 200px;
+      border-left: solid 1px lightgray;
+      padding-left: 25px;
+      margin-left: 25px;
+      margin-top: 25px;
+
+      h4 {
+        margin-top: 0px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+
+      a {
+        .button;
+        width: auto;
+        flex: 1;
+        margin: 10px;
+
+        &.block {
+          background: #ff7676;
+        }
+
+        &.block:hover {
+          background: #ff3535;
+        }
+      }
+    }
+  }
+}

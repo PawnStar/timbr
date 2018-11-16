@@ -27,13 +27,16 @@ body {
   .title {
     flex: 1;
 
+    position: relative;
+    top: -3px;
+
     i {
       display: inline-block;
       font-size: 22px;
       position: relative;
       top: -3px;
       margin: 8px;
-      margin-left: 16px;
+      color: #32c432;
     }
 
     h1 {
@@ -51,6 +54,7 @@ body {
         font-family: 'Montserrat', sans-serif;
         font-weight:300;
         opacity: .64;
+        color: #32c432;
       }
     }
   }
@@ -58,7 +62,12 @@ body {
   .menu {
     color: black;
 
-    .name {
+    a {
+      text-decoration: none;
+      color: #32c432;
+    }
+
+    a, .name {
       display: inline-block;
       margin: 15px;
       height: 20px;
@@ -94,3 +103,4 @@ body {
 @import "./home.less";
 @import "./login.less";
 @import "./error.less";
+@import "./profile.less";

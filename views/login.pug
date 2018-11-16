@@ -14,4 +14,7 @@ block content
           label(for='password') Password:
           input(name='password' type='password')
 
+        if redirect
+          input(type='hidden' name='redirect' value=redirect)
+
         button(type='submit') Login
