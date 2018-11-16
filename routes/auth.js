@@ -27,6 +27,8 @@ router.post('/register', bodyParser.urlencoded({extended: true}), async (req, re
 
   req.session._id = newSession._id
 
+  console.log('New user: ' + req.body.name);
+
   res.redirect('/profile/edit')
 })
 
