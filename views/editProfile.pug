@@ -1,0 +1,49 @@
+extends layout
+
+mixin checkbox(interests, label)
+  - let name = 'interest_' + label.toLowerCase().split(' ').join('_')
+  - let fancyLabel = label.split(' ').map(s=>(s.toUpperCase()[0] + s.toLowerCase().slice(1))).join(' ')
+  - let seperator = '---slkdjflskjfsd---'
+  .checkbox
+    input(type='checkbox' name=name value=fancyLabel checked=interests.join(seperator).split(seperator).includes(fancyLabel))
+    label(for=name)= fancyLabel
+
+block content
+  .editProfile
+    .hero
+      img(src='/images/banner/' + user._id)
+    form.text(action='/profile/edit' method='post')
+      img(src='/images/profile/' + user._id)
+
+      h3 Account Information
+
+      .entry
+        label(for='email') Email:
+        input(name='email' value=user.email)
+
+      h3 Personal Information
+      
+      .entry
+        label(for='name') Name:
+        input(name='name' value=user.name)
+      
+      .entry.complex
+        label(for='description') Bio
+        textarea(name='description')=user.description
+      
+      .entry.complex
+        label(for='profile') Interests
+        div
+          +checkbox(user.interests, 'Leaf art')
+          +checkbox(user.interests, 'Rain Tasting')
+          +checkbox(user.interests, 'Kite dining')
+          +checkbox(user.interests, 'Birdwatching')
+          +checkbox(user.interests, 'Birdhouse architecture')
+          +checkbox(user.interests, 'Cat snatching')
+
+      button(type='submit') Save Profile
+
+
+
+  script(src='/javascript/profileForm.js')
+

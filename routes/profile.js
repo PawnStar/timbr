@@ -1,4 +1,5 @@
 const router = require('express-promise-router')();
+const bodyParser = require('body-parser')
 
 const db = require('../db')
 
@@ -30,6 +31,22 @@ router.get('/:id', async (req, res)=>{
   }
 
   res.render('profile', {user: req.user, profile: profile})
+})
+
+router.post('/edit', bodyParser.urlencoded({extended: true}), async (req, res)=>{
+  let user = await db.user.findOne({_id: req.user._id})
+  if(!user) throw new Error('Invalid login')
+
+  user.email = req.body.email
+  user.name = req.body.name
+  user.description = req.body.description
+
+  // This one's a bit tricky so watch closely
+  user.interests = Object.keys(req.body).filter(f=>f.match('^interest_')).map(f=>req.body[f])
+
+  await user.save()
+
+  res.redirect('/profile')
 })
 
 module.exports = router;

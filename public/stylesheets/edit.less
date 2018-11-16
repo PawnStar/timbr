@@ -1,0 +1,92 @@
+@import (reference) "./partials/form.less";
+
+.editProfile {
+  .hero {
+    width: 100%;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-position: 50% 70%;
+      object-fit: cover;
+    }
+  }
+
+  .text {
+    max-width: 800px;
+    margin: 0px auto;
+
+    @media (max-width: 900px) {
+      margin: 0px 50px;
+    }
+
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 100px;
+      border: solid 10px #57f557;
+      margin-top: -140px;
+      background: white;
+    }
+
+    .entry {
+      display: flex;
+      margin-bottom: 10px;
+
+      label{
+        width: 100px;
+        align-self: center;
+      }
+
+      input {
+        flex: 1;
+        border: solid 1px lightgray;
+        padding: 5px;
+      }
+
+      &.complex {
+        & > label {
+          align-self: flex-start;
+          padding-top: 4px;
+        }
+
+        & > textarea {
+          flex: 1;
+          border: solid 1px lightgray;
+          padding: 5px;
+          height: 80px;
+          resize: none;
+        }
+
+        & > div {
+          flex: 1;
+          border-left: solid 1px lightgray;
+
+          .checkbox{
+            display: flex;
+            flex-direction: row;
+  
+            input {
+              border: none;
+              flex: 0;
+              margin: 10px;
+            }
+  
+            label {
+              flex: 1;
+              align-self: center;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      .button;
+      display: block;
+      width: 50%;
+      margin: 30px auto 80px auto;
+    }
+  }
+}
