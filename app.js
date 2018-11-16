@@ -65,4 +65,5 @@ app.use((err, req, res, next)=>{
 })
 
 // Start server
-app.listen(process.env.PORT || 3000, ()=>console.log('Express server listening'))
+const port = process.env.PORT || 3000
+app.listen(port, ()=>console.log('Express server listening in port ' + port))
