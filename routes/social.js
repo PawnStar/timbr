@@ -37,7 +37,7 @@ router.get('/unblock/:id', async (req, res)=>{
 
 router.get('/message/:id', async (req, res)=>{
   let err = new Error('Feature unavailable')
-  err.details = 'We apologize.  This feature is not implemented at this time.'
+  err.details = 'We apologize.  Cole hasn\'t gotten around to adding this feature yet.  (Did you really think we\'d also have chat functionality?)'
   throw err;
 })
 
