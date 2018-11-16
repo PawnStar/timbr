@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .login
+    .hero
+      form(action='/auth/login' method='post')
+        h1 Log in to Timbr
+
+        .entry
+          label(for='email') Email:
+          input(name='email')
+
+        .entry
+          label(for='password') Password:
+          input(name='password' type='password')
+
+        button(type='submit') Login

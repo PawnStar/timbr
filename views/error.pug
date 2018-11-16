@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h3= err.message
-  pre= err.stack
+  .error
+    .hero
+      h1= err.message
+
+      .message
+        pre= err.stack
+      
+      h3 Sorry about that
+      p Looks like our server encountered an error.  Feel free to <a href=".">try again</a>.

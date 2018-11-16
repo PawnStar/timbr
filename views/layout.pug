@@ -12,7 +12,7 @@ html
           a(href='/')
             | Timbr
             span .top
-      .menu
+      a.menu(href=user?'/profile':'/login')
         span.name= user?user.name:'Log in'
         if user && user.profile
           img.avatar(src='/images/profile/' + user._id)

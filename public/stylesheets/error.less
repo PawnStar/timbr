@@ -1,0 +1,56 @@
+.error .hero {
+  width: 100%;
+  height: 300px;
+  background-image: url('/images/error-hero.jpg');
+  background-position: center 70%;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    background: rgba(0,0,0,.5);
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  h1 {
+    font-size: 60px;
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 800px;
+    color: white;
+
+    position: relative;
+    top: 80px;
+  }
+
+  .message {
+    width: 100%;
+    max-width: 800px;
+    margin: 0px auto;
+    background: #fcc;
+    border: solid #ff5656 1px;
+    border-radius: 2px;
+    padding: 20px;
+    position: relative;
+    top: 140px;
+    margin-bottom: 160px;
+  
+    pre {
+      margin: 0px;
+      width: 100%;
+      white-space: pre-wrap;
+    }
+
+    & ~ * {
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

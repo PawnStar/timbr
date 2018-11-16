@@ -48,6 +48,7 @@ app.use(async (req, _, next)=>{
 // Routes
 app.use('/', require('./routes'))
 app.use('/auth', require('./routes/auth'))
+app.use('/profile', require('./routes/profile'))
 
 // Error handler
 const err = (message, status)=>{let err = new Error(message); err.status = status || 500; return err}
