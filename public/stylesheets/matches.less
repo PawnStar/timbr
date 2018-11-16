@@ -1,35 +1,76 @@
 @import (reference) "./partials/card.less";
 
+.matchPage {
+  max-width: 1200px;
+  margin: 0px auto;
+  width: 80%;
+}
+
 .matches{
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
 
   .match {
     .card;
 
-    display: inline-block;
-    width: 300px;
-    height: 150px;
-    margin: 20px;
+    text-decoration: none;
+    color: black;
 
-    & > div {
+    position: relative;
+    cursor: pointer;
+    top: 0px;
+    transition: top .2s;
+
+    &:hover {
+      top: -5px;
+    }
+
+    display: inline-block;
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+
+    & > div:not(.interests) {
       display: flex;
       flex-direction: row;
+      margin-bottom: 15px;
 
       img {
         width: 50px;
         height: 50px;
         display: inline-block;
+        border-radius: 25px;
       }
   
       div{
         flex: 1;
+        align-self: center;
+        margin-left: 15px;
 
         h4 {
-          display: inline-block;
+          margin: 0;
+        }
+
+        p {
+          margin: 0;
+          font-style: italic;
         }
       }
     }
+    
 
+    .interest {
+      font-size: 10px;
+      display: inline-block;
+      white-space: nowrap;
+      margin: 3px;
+      background: #e6e6e6;
+      padding: 4px 10px;
+      border-radius: 20px;
+
+      &.shared {
+        background: #cbffc7;
+      }
+    }
   }
 }

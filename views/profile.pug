@@ -30,6 +30,8 @@ block content
           - var totalInterests = profile.interests.concat(user.interests).filter((v,i,self)=>self.indexOf(v) === i).length
           - var matchedInterests = profile.interests.filter(v=>user.interests.indexOf(v) >= 0).length
           - var compatibility = (matchedInterests / totalInterests * 100).toFixed(0)
+          if isNaN(compatibility)
+            - compatibility = 0
 
           h5 Compatibility
           p #{compatibility}% compatible

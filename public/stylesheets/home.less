@@ -47,6 +47,19 @@
 
     form {
       .form;
+      height: 300px;
     }
+  }
+
+  & + * {
+
+    max-width: 1200px;
+    margin: 0px auto;
+
+    @media (max-width: 900px) {
+      margin: 0px 50px;
+    }
+
+    margin-top: 150px;
   }
 }

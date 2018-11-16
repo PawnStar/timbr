@@ -22,3 +22,17 @@ block content
             input(name='password' type='password')
 
           button(type='submit') Join Timbr
+    .text
+      h2 Recently created profiles:
+      .matches 
+        for suggestion in recents
+          a(href='/profile/' + suggestion._id).match
+            div
+              img(src='/images/profile/' + suggestion._id)
+              div
+                h4= suggestion.name
+            .interests
+              - let interests = suggestion.interests.slice(0, 5)
+              if interests.length > 0
+                for interest in interests
+                  span.interest.shared= interest
