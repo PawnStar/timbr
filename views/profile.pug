@@ -22,8 +22,18 @@ block content
         h4 Interests
         if profile.interests.length > 0
           for interest in profile.interests
-            span.interest= interest
+            span.interest(class=(user.interests.indexOf(interest) >= 0)?'shared':'')= interest
         else
           span No interests
-        p Compatibility circle here
+        if profile._id != user._id
+          - // Compatibility computation quite simple
+          - var totalInterests = profile.interests.concat(user.interests).filter((v,i,self)=>self.indexOf(v) === i).length
+          - var matchedInterests = profile.interests.filter(v=>user.interests.indexOf(v) >= 0).length
+          - var compatibility = (matchedInterests / totalInterests * 100).toFixed(0)
+
+          h5 Compatibility
+          p #{compatibility}% compatible
+        else
+          p
+            a(href='/') Find people
   
