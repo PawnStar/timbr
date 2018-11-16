@@ -39,12 +39,23 @@
     position: relative;
     top: 140px;
     margin-bottom: 160px;
-  
+
     pre {
       margin: 0px;
       width: 100%;
       white-space: pre-wrap;
     }
+
+    & ~ * {
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .spacer {
+    height: 250px;
 
     & ~ * {
       width: 100%;

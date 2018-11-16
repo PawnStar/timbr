@@ -5,8 +5,11 @@ block content
     .hero
       h1= err.message
 
-      .message
-        pre= err.stack
-      
+      if err.stack
+        .message
+          pre= err.stack
+      else
+        .spacer
+
       h3 Sorry about that
-      p= err.details || 'Looks like our server encountered an error.  Feel free to <a href=".">try again</a>.'
+      p= err.details || 'Looks like our server encountered an error.  Feel free to refresh the page and try again.'

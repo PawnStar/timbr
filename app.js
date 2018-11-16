@@ -48,6 +48,7 @@ app.use(async (req, _, next)=>{
 app.use('/', require('./routes'))
 app.use('/auth', require('./routes/auth'))
 app.use('/profile', require('./routes/profile'))
+app.use('/social', require('./routes/social'))
 app.use('/images', require('./routes/images'))
 app.use(express.static('public'))
 
@@ -59,7 +60,7 @@ app.use((err, req, res, next)=>{
   res.status(err.status || 500)
 
   if(process.env.NODE_ENV === 'production')
-    err.stack = '[Stack trace redacted]'
+    delete err.stack
 
   res.render('error', {err, user: req.user})
 })
